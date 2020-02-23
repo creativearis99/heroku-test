@@ -11,7 +11,7 @@ const filename = 'server.js';
 module.exports = (env, argv) => {
     const isProd = env ? !!env.prod : false;
     const isDebug = env ? !!env.debug : false;
-    isProd ? dotenv.config() : require('./src/config');
+    isProd ? null : require('./src/config');
     return {
         context: path.resolve(__dirname, 'src'),
         resolve: {
@@ -32,7 +32,7 @@ module.exports = (env, argv) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader'],
+                    use: ['babel-loader']
                 },
                 {
                     test: /\.(css|scss)$/,
@@ -59,18 +59,23 @@ module.exports = (env, argv) => {
                 'process.env.DEBUG': JSON.stringify(isDebug),
                 'process.env.PORT': JSON.stringify(process.env.PORT)
             }),
-            new GenerateJsonPlugin('package.json', Object.assign({}, json, {
-                main: filename,
-                scripts: {
-                    start: `node ${filename}`
-                },
-                devDependencies: {}
-            })),
-            argv.watch ? new NodemonPlugin({
-                script: path.resolve(__dirname, 'dist', filename),
-                watch: path.resolve(__dirname, 'dist', filename),
-                verbose: true
-            }) : () => {}
-        ],
+            new GenerateJsonPlugin(
+                'package.json',
+                Object.assign({}, json, {
+                    main: filename,
+                    scripts: {
+                        start: `node ${filename}`
+                    },
+                    devDependencies: {}
+                })
+            ),
+            argv.watch
+                ? new NodemonPlugin({
+                      script: path.resolve(__dirname, 'dist', filename),
+                      watch: path.resolve(__dirname, 'dist', filename),
+                      verbose: true
+                  })
+                : () => {}
+        ]
     };
 };
