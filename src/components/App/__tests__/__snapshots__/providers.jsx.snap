@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`providers renders three <Providers /> components 1`] = `
+<div>
+  asd
+</div>
+`;

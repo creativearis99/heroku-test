@@ -1,0 +1,8 @@
+{
+  "generator-mussia": {
+    "fullstack": true,
+    "render": true,
+    "db": false,
+    "io": false
+  }
+}
