@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/server.jsx",
   "scripts": {
-    "start": "npm run start:client & npm run start:server",
+    "dev": "npm run start:client & npm run start:server",
+    "start": "node dist/server.js",
     "start:client": "webpack-dev-server --config webpack.config.client.js",
     "start:server": "webpack -w --config webpack.config.server.js",
     "clean": "rimraf dist/",
