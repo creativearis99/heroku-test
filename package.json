@@ -112,7 +112,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint & npm run test",
       "post-checkout": "npm run pi"
     }
   }
