@@ -4,5 +4,5 @@ WORKDIR /usr/src/app
 COPY dist .
 RUN npm install --only=production
 
-EXPOSE 7000
+EXPOSE 8080
 CMD ["npm", "start"]
