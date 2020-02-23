@@ -4,7 +4,7 @@ FROM node:12 AS builder
 #ARG modulePath=.
 #ENV MODULE_PATH=$modulePath
 
-COPY worker .
+COPY . .
 RUN npm i
 RUN npm run build
 
