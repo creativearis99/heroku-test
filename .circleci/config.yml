@@ -91,9 +91,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: install-packages
-          command: npm run pi
+#      - run:
+#          name: install-packages
+#          command: npm run pi
 
       - run:
           name: test with coverage
