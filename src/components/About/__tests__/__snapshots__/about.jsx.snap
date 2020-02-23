@@ -2,10 +2,10 @@
 
 exports[`renders three <About /> components 1`] = `
 <div
-  className="about"
+  className="root"
 >
   <h2>
-    About
+    About ss
   </h2>
 </div>
 `;
