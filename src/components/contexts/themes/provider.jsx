@@ -7,7 +7,7 @@ class ThemesProvider extends Component {
         super(props, context);
 
         this.state = {
-            theme: themes.light,
+            theme: themes.light
         };
 
         this.toggleTheme = this.toggleTheme.bind(this);
@@ -15,20 +15,18 @@ class ThemesProvider extends Component {
 
     toggleTheme() {
         this.setState((state) => ({
-            theme:
-                state.theme === themes.dark
-                    ? themes.light
-                    : themes.dark,
+            theme: state.theme === themes.dark ? themes.light : themes.dark
         }));
     }
 
     render() {
         const { children } = this.props;
         return (
-            <Provider value={{
-                ...this.state,
-                toggleTheme: this.toggleTheme
-            }}
+            <Provider
+                value={{
+                    ...this.state,
+                    toggleTheme: this.toggleTheme
+                }}
             >
                 {children}
             </Provider>
@@ -37,7 +35,7 @@ class ThemesProvider extends Component {
 }
 
 ThemesProvider.propTypes = {
-    // children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired
 };
 
 export default ThemesProvider;
