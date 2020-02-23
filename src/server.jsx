@@ -29,8 +29,8 @@ app.use(api);
 //     return next();
 // });
 app.use(render(App, routes));
-
-app.listen(process.env.PORT || 3000, '0.0.0.0', (err) => {
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, (err) => {
     if (err) {
         console.log('err', err); // eslint-disable-line no-console
     } else {
