@@ -23,8 +23,7 @@
     "debug:server": "webpack --config webpack.config.server.js -w",
     "debug:client": "webpack --config webpack.config.client.js -w",
     "debug": "npm run debug:server",
-    "dist": "npm run build && cd dist && npm start",
-    "postinstall": "npm run build"
+    "dist": "npm run build && cd dist && npm start"
   },
   "repository": {
     "type": "git",
