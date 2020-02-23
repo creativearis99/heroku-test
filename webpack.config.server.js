@@ -3,7 +3,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 const NodemonPlugin = require('nodemon-webpack-plugin');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 const json = require('./package');
 
 const filename = 'server.js';
