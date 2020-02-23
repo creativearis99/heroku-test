@@ -4,6 +4,8 @@ FROM node:12 AS builder
 #ARG modulePath=.
 #ENV MODULE_PATH=$modulePath
 WORKDIR /app
+ARG port=8080
+ENV PORT=$port
 COPY . .
 RUN npm i
 RUN npm run build
