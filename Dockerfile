@@ -4,8 +4,8 @@ FROM node:12 AS builder
 #ARG modulePath=.
 #ENV MODULE_PATH=$modulePath
 WORKDIR /app
-ARG port=8080
-ENV PORT=$port
+#ARG port=8080
+#ENV PORT=$port
 COPY . .
 RUN npm i
 RUN npm run build
@@ -23,6 +23,6 @@ WORKDIR /usr/src/app
 COPY --from=builder /app/dist .
 RUN npm install --only=production
 
-EXPOSE ${PORT}
+#EXPOSE ${PORT}
 
-CMD ["npm", "start"]
+CMD ["node", "server.js", "--bind", '0.0.0.0']
