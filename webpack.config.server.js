@@ -55,10 +55,10 @@ module.exports = (env, argv) => {
             ]
         },
         plugins: [
-            new webpack.DefinePlugin({
-                'process.env.DEBUG': JSON.stringify(isDebug),
-                'process.env.PORT': JSON.stringify(process.env.PORT)
-            }),
+            // new webpack.DefinePlugin({
+            //     'process.env.DEBUG': JSON.stringify(isDebug),
+            //     'process.env.PORT': JSON.stringify(process.env.PORT)
+            // }),
             new GenerateJsonPlugin(
                 'package.json',
                 Object.assign({}, json, {

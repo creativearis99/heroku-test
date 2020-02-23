@@ -7,7 +7,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const dotenv = require('dotenv');
 
-module.exports = env => {
+module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
     const isDebug = env ? !!env.debug : false;
     const config = isProd ? dotenv.config() : require('./src/config'); // eslint-disable-line global-require
@@ -15,10 +15,7 @@ module.exports = env => {
     return {
         context: path.resolve(__dirname, 'src'),
         optimization: {
-            minimizer: [
-                new TerserPlugin(),
-                new OptimizeCSSAssetsPlugin({})
-            ]
+            minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin({})]
         },
         target: 'web',
         resolve: {
@@ -38,7 +35,7 @@ module.exports = env => {
                 {
                     test: /\.(js|jsx)$/,
                     use: ['babel-loader'],
-                    exclude: /node_modules/,
+                    exclude: /node_modules/
                 },
                 {
                     test: /\.(css|scss)$/,
@@ -49,14 +46,16 @@ module.exports = env => {
                             loader: 'css-loader',
                             options: {
                                 modules: {
-                                    localIdentName: isProd ? '[hash:base64]' : '[local]--[hash:base64:5]'
+                                    localIdentName: isProd
+                                        ? '[hash:base64]'
+                                        : '[local]--[hash:base64:5]'
                                 }
                             }
                         },
                         {
                             loader: 'sass-loader'
                         }
-                    ],
+                    ]
                 },
                 {
                     test: /\.ejs$/,
@@ -74,10 +73,10 @@ module.exports = env => {
             ]
         },
         plugins: [
-            new webpack.DefinePlugin({
-                'process.env.DEBUG': JSON.stringify(isDebug),
-                'process.env.PORT': JSON.stringify(process.env.PORT)
-            }),
+            // new webpack.DefinePlugin({
+            //     'process.env.DEBUG': JSON.stringify(isDebug),
+            //     'process.env.PORT': JSON.stringify(process.env.PORT)
+            // }),
             new HtmlWebpackPlugin({
                 template: 'index.ejs',
                 filename: 'index.ejs',
@@ -96,7 +95,7 @@ module.exports = env => {
                 // Options similar to the same options in webpackOptions.output
                 // both options are optional
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
-                chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
+                chunkFilename: !isProd ? '[id].css' : '[id].[hash].css'
             }),
             new BundleAnalyzerPlugin({
                 analyzerMode: 'static',
@@ -108,7 +107,8 @@ module.exports = env => {
             //     openAnalyzer: false
             // }) : new BundleAnalyzerPlugin({})
         ],
-        devServer: { // when not prod - NODE_ENV_DOCKER taken from docker-compose env
+        devServer: {
+            // when not prod - NODE_ENV_DOCKER taken from docker-compose env
             port: config.port + 1,
             open: true,
             host: process.env.NODE_ENV_DOCKER ? '0.0.0.0' : 'localhost',

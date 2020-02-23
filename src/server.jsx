@@ -29,11 +29,11 @@ app.use(api);
 //     return next();
 // });
 app.use(render(App, routes));
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, (err) => {
     if (err) {
         console.log('err', err); // eslint-disable-line no-console
     } else {
-        console.log(`running at port: ${process.env.PORT || 3000}`); // eslint-disable-line no-console
+        console.log(`running at port: ${PORT}`); // eslint-disable-line no-console
     }
 });
