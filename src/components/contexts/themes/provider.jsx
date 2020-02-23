@@ -5,7 +5,6 @@ import { Provider, themes } from './context';
 class ThemesProvider extends Component {
     constructor(props, context) {
         super(props, context);
-
         this.state = {
             theme: themes.light
         };
