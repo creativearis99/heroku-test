@@ -12,8 +12,8 @@ RUN npm run build
 
 FROM node:12-alpine
 
-ARG port=8080
-ENV PORT=$port
+#ARG port=8080
+#ENV PORT=$port
 
 #ARG distFolder=dist
 #ARG modulePath=.
