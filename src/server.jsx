@@ -1,7 +1,6 @@
 import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
-import { port } from './config';
 import render from './services/render';
 import api from './api';
 import App from './components/App';
@@ -31,10 +30,10 @@ app.use(api);
 // });
 app.use(render(App, routes));
 
-app.listen(port, '0.0.0.0', (err) => {
+app.listen(process.env.PORT || 3000, '0.0.0.0', (err) => {
     if (err) {
         console.log('err', err); // eslint-disable-line no-console
     } else {
-        console.log(`running at port: ${port}`); // eslint-disable-line no-console
+        console.log(`running at port: ${process.env.PORT || 3000}`); // eslint-disable-line no-console
     }
 });
