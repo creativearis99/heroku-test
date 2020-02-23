@@ -3,7 +3,7 @@ FROM node:12 AS builder
 #ARG distFolder=dist
 #ARG modulePath=.
 #ENV MODULE_PATH=$modulePath
-WORKDIR /app
+
 COPY . .
 RUN npm i
 RUN npm run build
