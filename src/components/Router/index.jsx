@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
@@ -5,7 +7,7 @@ import { Route } from 'react-router-dom';
 const Router = ({ children, routes }) => (
     <div>
         {children}
-        {routes.map(route => <Route key={route.key} {...route} />)}
+        {routes.map((route) => <Route key={route.key} {...route} />)}
     </div>
 );
 

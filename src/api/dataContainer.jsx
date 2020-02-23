@@ -11,7 +11,7 @@ class DataContainer extends Component {
 
     render() {
         const { render } = this.props;
-        return render(Object.assign({}, this.props, { render: null }));
+        return render(Object.assign({}, this.props, { render: null })); // eslint-disable-line
     }
 }
 

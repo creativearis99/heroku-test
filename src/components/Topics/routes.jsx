@@ -11,7 +11,11 @@ const Topic = ({ match }) => (
 );
 
 Topic.propTypes = {
-    match: PropTypes.shape({}).isRequired
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            topicId: PropTypes.string
+        })
+    }).isRequired
 };
 
 const routes = [

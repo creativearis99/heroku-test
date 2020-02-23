@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MainNav = ({ routes }) => (
     <header>
-        {routes.map(route => (
+        {routes.map((route) => (
             <div key={route.key}>
                 <Link to={route.path}>
                     {route.key}

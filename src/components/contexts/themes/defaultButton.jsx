@@ -13,7 +13,9 @@ const DefaultConsumer = (props) => {
 };
 
 DefaultConsumer.propTypes = {
-    theme: PropTypes.shape({}).isRequired,
+    theme: PropTypes.shape({
+        background: PropTypes.string
+    }).isRequired,
     toggleTheme: PropTypes.func.isRequired
 };
 

@@ -27,7 +27,7 @@ const Topics = (props) => {
             </h2>
             <Router routes={routes}>
                 <ul>
-                    {data.map(val => (
+                    {data.map((val) => (
                         <li key={val.value}>
                             <Link to={`${match.url}/${val.value}`}>
                                 {val.title}
@@ -41,7 +41,9 @@ const Topics = (props) => {
 };
 
 Topics.propTypes = {
-    match: PropTypes.shape({}).isRequired
+    match: PropTypes.shape({
+        url: PropTypes.string
+    }).isRequired
 };
 
 export default Topics;

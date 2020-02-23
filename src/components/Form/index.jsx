@@ -14,7 +14,7 @@ class FormWithArrays extends Component {
                     <div className="col-xs-7">
                         <div className={styles.root}>
                             <div className="root">
-                                 stam
+                                stam
                             </div>
                             <div>
                                 form here
