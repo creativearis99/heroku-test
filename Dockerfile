@@ -26,3 +26,4 @@ RUN npm install --only=production
 #EXPOSE ${PORT}
 
 CMD ["node", "server.js", "--bind", '0.0.0.0']
+CMD npm start
