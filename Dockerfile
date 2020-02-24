@@ -1,9 +1,6 @@
 FROM node:12 AS builder
 
-#ARG distFolder=dist
-#ARG modulePath=.
-#ENV MODULE_PATH=$modulePath
-
+WORKDIR /usr/app
 COPY . .
 RUN npm i
 RUN npm run build
@@ -13,12 +10,8 @@ FROM node:12-alpine
 ARG port=8080
 ENV PORT=$port
 
-#ARG distFolder=dist
-#ARG modulePath=.
-#ENV DIST_FOLDER=$distFolder
-#ENV MODULE_PATH=$modulePath
 WORKDIR /usr/src/app
-COPY --from=builder /app/dist .
+COPY --from=builder /usr/app/dist .
 RUN npm install --only=production
 
 EXPOSE ${PORT}
